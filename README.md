@@ -1,26 +1,105 @@
-# Job board starter
+# Job Board Starter
 
-A small job board for an insiderOne work sample. It is made up: the jobs and
-companies are not real.
+A small job board application built for the InsiderOne Software Development Intern work sample.
 
-## Run it
+The application uses sample jobs and companies. They are not real.
 
-You need Node 20 or newer. There are no packages to install.
+## Requirements
 
+- Node.js version 20 or newer.
+- No external packages required.
+
+## How to Run
+
+Start the application:
+
+```bash
+npm start
 ```
-npm start      # then open http://localhost:3000
-npm test       # runs the tests in test/
+
+Open the application in your browser:
+
+http://localhost:3000
+
+Run automated tests:
+
+```bash
+npm test
 ```
 
-## What is here
+## Features Implemented
 
-- `server.js`: the web server. `GET /api/jobs?q=` lists jobs, `GET /` serves the page.
-- `lib/jobs.js`: reading and searching the jobs. Pure functions.
-- `jobs.json`: the jobs.
-- `public/`: the page and its script.
-- `test/`: tests, using Node's built-in test runner.
+### 1. Job Listings
+- Display all available jobs.
+- Search jobs by title, company, and location.
 
-## Your task
+### 2. Save Jobs
+- Save jobs using the Save button.
+- Prevent duplicate saved jobs.
+- Store saved job IDs in a JSON file.
 
-See the work sample brief on insiderOne: add saved jobs (save, list, remove),
-with tests, and add a short section to this README about what you built.
+### 3. List Saved Jobs
+- Display saved jobs in a separate section.
+- Show complete job details.
+- Load saved jobs automatically when the page opens.
+
+### 4. Remove Saved Jobs
+- Remove jobs using the Remove button.
+- Update the saved jobs list automatically.
+
+### 5. Backend API
+
+The following API endpoints are implemented:
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | /api/jobs | Retrieve and search jobs |
+| GET | /api/saved | Retrieve saved jobs |
+| POST | /api/saved | Save a job |
+| DELETE | /api/saved/:jobId | Remove a saved job |
+
+### 6. Data Persistence
+- Saved job IDs are stored in `saved-jobs.json`.
+- Saved jobs remain available after refreshing the browser.
+
+## Project Structure
+
+```text
+job-board-starter/
+├── server.js
+├── jobs.json
+├── saved-jobs.json
+├── package.json
+├── README.md
+├── lib/
+│   ├── jobs.js
+│   └── saved.js
+├── public/
+│   ├── index.html
+│   └── app.js
+└── test/
+    └── jobs.test.js
+```
+
+## Testing
+
+The project uses Node.js built-in test runner.
+
+Run tests using:
+
+```bash
+npm test
+```
+
+The original three tests pass successfully.
+
+The saved jobs functionality was also manually verified, including saving, duplicate prevention, retrieving, removing, and persistence after browser refresh.
+
+## Technologies Used
+
+- JavaScript
+- Node.js
+- HTML
+- CSS
+- JSON
+- Git and GitHub
